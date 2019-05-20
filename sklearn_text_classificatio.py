@@ -86,7 +86,7 @@ if __name__ == '__main__':
         ["Date of this deed settlement is 9th Jan 2012 "]))
     print(result)
 
-    joblib.dump(clf, os.path.join(args.model_dir, "model.joblib"))
+    joblib.dump(classifier, os.path.join(args.model_dir, "model.joblib"))
 
 
 def model_fn(model_dir):
