@@ -68,7 +68,8 @@ if __name__ == '__main__':
 
     # print(X_train.toarray())
 
-    classifier = LogisticRegression()
+    classifier = LogisticRegression(
+        solver='lbfgs', multi_class='auto')  # solver='liblinear' multi_class='ovr'
     classifier.fit(X_train, y_train)
     score = classifier.score(X_test, y_test)
 
@@ -95,4 +96,5 @@ def model_fn(model_dir):
     Note that this should have the same name as the serialized model in the main method
     """
     clf = joblib.load(os.path.join(model_dir, "model.joblib"))
+    print(clf)
     return clf
