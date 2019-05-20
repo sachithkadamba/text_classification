@@ -7,7 +7,8 @@ import pandas as pd
 
 import argparse
 import os
-
+import numpy as np
+import sklearn
 from sklearn import svm
 from sklearn.externals import joblib
 
@@ -98,3 +99,9 @@ def model_fn(model_dir):
     clf = joblib.load(os.path.join(model_dir, "model.joblib"))
     print(clf)
     return clf
+
+
+def predict_fn(input_data, model):
+    prediction = model.predict(input_data)
+    pred_prob = model.predict_proba(input_data)
+    return np.array([prediction, pred_prob])
