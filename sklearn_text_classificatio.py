@@ -1,7 +1,11 @@
 
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.externals import joblib
+import pandas as pd
 
 import argparse
-import pandas as pd
 import os
 
 from sklearn import svm
